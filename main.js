@@ -5,7 +5,7 @@ async function fetchPrice() {
     return await fetch('https://api.coinbase.com/v2/prices/spot?currency=USD');
 }
 
-async function timedFetch() {
+async function timedFetch(i) {
     const promise = new Promise((resolve, reject) => {
         setTimeout(async () => {
             const data = await fetchPrice();
@@ -16,5 +16,5 @@ async function timedFetch() {
 }
 
 for (var i = 0; i < 10; i++) {
-    await timedFetch();
+    await timedFetch(i);
 }
